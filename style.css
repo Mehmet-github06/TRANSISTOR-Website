@@ -8,7 +8,7 @@
   height: 100vh;
 }
 .navbar {
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +32,7 @@
 }
 .title h1 {
   text-align: center;
-  border: 1px solid;
+  /* border: 1px solid; */
   text-align: center;
   font-size: 60px;
   font-weight: 700;
@@ -41,18 +41,20 @@
   margin-top: 90px;
 }
 .img img{
-    width: 300px;
-    height: auto;
-    border: 1px solid;
+    width: 250px;
+    height: 200px;
+    /* border: 1px solid; */
     border-radius: 5px;
 }
 .main{
     display: flex;
     justify-content: center;
     align-self: center;
-    margin: 50px auto auto;
-    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 50px auto ;
+    gap: .5rem;
     margin-bottom: 100px;
+    /* position: relative; */
 }
 .footer{
     border: 1px solid ;
@@ -69,11 +71,11 @@
 }
 
 .logo:hover{
-    transform: rotate(360deg) scale(1.5);
-    transition: all 3s;
-   
-    
-}.navbar ul a li{
+    animation:logo 1s linear  alternate;
+}
+
+
+.nav ul li a {
     text-decoration: none;
     font-size: 18px;
     font-weight: 700;
@@ -82,17 +84,55 @@
     display: inline-block;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease; /* Rengin değişimini ekliyoruz */
 }
-.navbar ul a li:hover::after{
+
+.nav ul li a::after {
     content: "";
     position: absolute;
     height: 2px;
     width: 100%;
     background: #8a1c4a;
     bottom: 0px;
-    left: -100%;
-    transition: all 0.6s ease-in-out;
+    left: 0;
+    transform: scaleX(0); /* Başlangıçta sıfır genişlikle başlasın */
+    transform-origin: right;
+    transition: transform 0.3s ease; /* Genişliği değişimini ekliyoruz */
+}
+
+.nav ul li a:hover {
+    color: #8a1c4a; /* Üzerine gelince rengini değiştiriyoruz */
+}
+
+.nav ul li a:hover::after {
+    transform: scaleX(1); /* Üzerine gelince alt çizgiyi genişletiyoruz */
+    transform-origin: left;
+}
+.img img:hover{
+    transform: scale(2);
+    position: relative;
+    transition: all 2s ease-in-out;
+    z-index: 2;
+
+}
 
 
+
+@keyframes logo{
+    100%{
+        transform: rotate(360deg) scale(1.5);
+    }
+}
+
+.img img{
+    animation: main 4s ease-in-out  infinite alternate;
+
+}
+
+
+@keyframes main{
+    100%{
+        transform: scale(1.5);
+    }
+  
 }
