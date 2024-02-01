@@ -9,7 +9,7 @@ TRANSİSTOR is a website that showcases various courses and information sessions
 
 ## Live Link
 
-[Live Demo](#) *(Insert your actual live link)*
+[Live Demo](https://animation-pearl.vercel.app/) *(Insert your actual live link)*
 
 ## Technologies Used
 
